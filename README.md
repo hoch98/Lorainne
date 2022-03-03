@@ -15,8 +15,8 @@ Installation Process:
 `var usr = "<Email for Your Minecraft>"`
 <br>
 `const hclient = new HypixelAPI("")`
-
 (You can get your Hypixel API key by using `/api new` on Hypixel!)
+
 5. Run the script using `node lorainne.js`
 6. You can now join Hypixel through `localhost:25567`
 (You can edit the port variable in the script to 25565 if you want to join Hypixel through `localhost` instead)
