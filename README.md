@@ -6,8 +6,11 @@ Installation Process:
 1. Clone the Repository: `https://github.com/CraftYun83/Lorainne.git`
 2. Go Into the Cloned Repository: `cd Lorainne`
 3. Download Dependencies:
+
 `npm install minecraft-protocol`
+<br>
 `npm install hypixel-api`
+
 4. Edit Values of Variables Inside Script (filename: lorainne.js):
 
 `var username = "<Name of Your Minecraft Username>"`
