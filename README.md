@@ -15,7 +15,7 @@ Installation Process:
 
 `var username = "<Name of Your Minecraft Username>"`
 <br>
-`var usr = "<Email for Your Minecraft>"`
+`var usr = "<Email for Your Minecraft Account>"`
 <br>
 `const hclient = new HypixelAPI("")`
 (You can get your Hypixel API key by using `/api new` on Hypixel!)
