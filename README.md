@@ -28,6 +28,6 @@ Use with caution, anything could happen. Try not starting a winstreak while usin
 
 Current Issues: 
 
- - Sometimes, players from lobbies sneak past my if statement checking what the current game is, potentially because the scoreboard packet from the lobby was received before the packet containing the scoreboard data for the game and the game variable was still lobby. If you have a fix to this issue, please feel free to create a PR.
+ - Sometimes, players from lobbies sneak past my if statement checking what the current game is, potentially because the scoreboard packet from the lobby was received before the packet containing the scoreboard data for the game and the game variable was still lobby.
 
 ![2022-02-03_02 55 48](https://user-images.githubusercontent.com/65894771/152222568-98468a86-1630-4d51-96b7-8463ec61b726.png)
