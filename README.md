@@ -9,9 +9,13 @@ Installation Process:
 `npm install minecraft-protocol`
 `npm install hypixel-api`
 4. Edit Values of Variables Inside Script (filename: lorainne.js):
+
 `var username = "<Name of Your Minecraft Username>"`
+
 `var usr = "<Email for Your Minecraft>"`
+
 `const hclient = new HypixelAPI("")`
+
 (You can get your Hypixel API key by using `/api new` on Hypixel!)
 5. Run the script using `node lorainne.js`
 6. You can now join Hypixel through `localhost:25567`
