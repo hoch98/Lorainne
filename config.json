@@ -3,6 +3,6 @@
   "email": "<Email Account of MC Account>",
   "apikey": "<Type /api in Hypixel chat and copy and paste the result here!>",
   "port": 25565,
-  "mcversion": "1.8.9"
+  "mcversion": "1.8.9",
   "debug": false;
 }
