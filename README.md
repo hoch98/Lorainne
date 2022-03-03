@@ -11,9 +11,7 @@ Installation Process:
 4. Edit Values of Variables Inside Script (filename: lorainne.js):
 
 `var username = "<Name of Your Minecraft Username>"`
-
 `var usr = "<Email for Your Minecraft>"`
-
 `const hclient = new HypixelAPI("")`
 
 (You can get your Hypixel API key by using `/api new` on Hypixel!)
