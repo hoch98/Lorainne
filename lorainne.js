@@ -100,7 +100,6 @@ fs.readFile('config.json', (err, data) => {
         targetClient.on("login", function(client){
       
           targetClient.write("chat", { message: "/locraw"})
-          console.log(targetClient)
       
         })
         targetClient.on('packet', function (data, meta) {
@@ -123,10 +122,6 @@ fs.readFile('config.json', (err, data) => {
                   pc = 0;
                   players = [];
                 
-                } else if (JSON.stringify(data.message).replaceAll(/§[a-z\d]/ig, '').includes(client.username+" joined (") && game != "lobby") {
-
-
-
                 }
       
               } if (meta.name === "scoreboard_team") {
@@ -168,6 +163,10 @@ fs.readFile('config.json', (err, data) => {
                                                     if (json.success == true) {
 
                                                       // Runs when got Hypixel data succesfully
+                                                      
+                                                      var player1Rank = (json.player.newPackageRank ? json.player.newPackageRank : 'DEFAULT')
+                                                      var playerRankPlus = player1Rank.replace(/_PLUS/g, '+')
+                                                      pk = json.player.monthlyPackageRank ? playerRankPlus += '+' : playerRankPlus
 
                                                       let playerdata = {
                                                         wlr: (((Math.round(json.player.stats.Duels.wins / json.player.stats.Duels.losses * 100) / 100) == NaN) ? 'None' : (Math.round(json.player.stats.Duels.wins / json.player.stats.Duels.losses * 100) / 100)),
@@ -175,6 +174,7 @@ fs.readFile('config.json', (err, data) => {
                                                         wins: ((json.player.stats.Duels.wins == undefined) ? "None" : json.player.stats.Duels.wins),
                                                         current_winstreak: ((json.player.stats.Duels.current_winstreak == undefined) ? "None" : json.player.stats.Duels.current_winstreak),
                                                         bws: ((json.player.stats.Duels.best_overall_winstreak == undefined) ? 'None' : json.player.stats.Duels.best_overall_winstreak),
+                                                        rank: pk
                                                       }
                                                       if (playerdata.wlr == NaN || playerdata.wlr == undefined) {
                                                         
