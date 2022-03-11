@@ -19,5 +19,4 @@ Installation Process:
 
 Use with caution, anything could happen. Try not starting a winstreak while using Lorainne, you might get kicked without warning!
 
-
-![2022-03-11_23 06 31](https://user-images.githubusercontent.com/47018858/157893794-4fcc0105-3ac1-4145-87a5-6ced7921c048.png)
+![2022-03-11_23 48 45](https://user-images.githubusercontent.com/47018858/157901170-80a1c77a-d3be-4181-9ae7-1b5b6152d07c.png)
