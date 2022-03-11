@@ -11,18 +11,11 @@ Installation Process:
 <br>
 `npm install hypixel-api`
 
-4. Edit Values of Variables Inside Script (filename: lorainne.js):
-
-`var username = "<Name of Your Minecraft Username>"`
-<br>
-`var usr = "<Email for Your Minecraft Account>"`
-<br>
-`const hclient = new HypixelAPI("")`
-(You can get your Hypixel API key by using `/api new` on Hypixel!)
-
-5. Run the script using `node lorainne.js`
-6. You can now join Hypixel through `localhost:25567`
-(You can edit the port variable in the script to 25565 if you want to join Hypixel through `localhost` instead)
+4. Run the script using `node lorainne.js`
+5. Edit the generated `config.json` file with the required values
+6. Run the script again using `node lorainne.js`
+7. You can now join Hypixel through `localhost`
+(This is only for the default port (25565) inside `config.json`, if you changed it, join using `localhost:<port_number>`)
 
 Use with caution, anything could happen. Try not starting a winstreak while using Lorainne, you might get kicked without warning!
 
