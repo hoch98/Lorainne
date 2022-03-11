@@ -5,7 +5,7 @@ Lorainne is currently in early beta testing and is one of the best open-source 
 
 How our stats checking works:
 
-To avoid getting Hypixel API restricted, I first pass the username along to the Mojang API to check whether the player exists. If it does, it will pass it along to the Hypixel API. On normal servers, we wouldn't need to send it to Mojang first, but on Hypixel, they have bot accounts with names that consists of randomly generated letters and number. These are really annoying and would make your API key wear out really fast.
+To avoid getting Hypixel API restricted, I first pass the username along to the Mojang API to check whether the player exists. If it does, it will pass it along to the Hypixel API. On normal servers, we wouldn't need to send it to Mojang first, but on Hypixel, they have bot accounts with names that consists of randomly generated letters and number. These are really annoying and would make your API key wear out really fast. Checking the name first with Mojang allows us to cross out 99% of the bots, and only use the Hypixel API for the players we actually want to search for.
 
 What's happening next?
 
