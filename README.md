@@ -18,8 +18,6 @@ Installation Process:
 3. Download Dependencies:
 
 `npm install minecraft-protocol`
-<br>
-`npm install hypixel-api`
 
 4. Run the script using `node lorainne.js`
 5. Edit the generated `config.json` file with the required values
