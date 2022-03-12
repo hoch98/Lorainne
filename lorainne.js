@@ -7,6 +7,7 @@ var players = []
 var pcount;
 var game = "lobby"
 var gameinfo;
+var cache = {};
 const games = ["UHC", "Bridge", "Sumo", "Parkour", "Classic", "SkyWars", "Boxing", "Bow", "NoDebuff", "Combo", "OP", "MegaWalls", "Blitz", "Spleef"]
 var pc = 0
 var apikey;
@@ -14,6 +15,19 @@ var port;
 var version;
 var email;
 var debug = false;
+
+function add_player(name, data) {
+
+	cache.name = data;
+	return true;
+
+}
+
+function get_player(name) {
+
+	return cache.name
+
+}
 
 fs.readFile('config.json', (err, data) => {
 	if (err) {
