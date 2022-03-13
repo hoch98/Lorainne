@@ -19,5 +19,7 @@ Installation Process:
 
 Use with caution, anything could happen. Try not starting a winstreak while using Lorainne, you might get kicked without warning!
 
+<h1>This proxy is DECENTLY DETECTABLE</h1>
+
 <h1>Temporarily Discontinued.</h1>
 I only started Lorainne because I thought it might've been an interesting project to work on, and also because I do not like close-sourced projects, but school work is a bigger priority. Therefore, I will be temporarily discontinuing the Lorainne project. I will probably be back working on this project in a few weeks. If you have any questions, or whether you have questions about my code, feel free to add me on discord @ FourMC#1822.
