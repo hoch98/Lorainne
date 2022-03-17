@@ -17,7 +17,7 @@ Installation Process:
 7. You can now join Hypixel through `localhost`
 (This is only for the default port (25565) inside `config.json`, if you changed it, join using `localhost:<port_number>`)
 
-Use with caution, anything could happen. Try not starting a winstreak while using Lorainne, you might get kicked without warning!
+Use with caution, anything could happen. Try not starting a winstreak while using Lorainne, you might get kicked without warning! Potentially could get banned.
 
 <h1>This proxy is DECENTLY DETECTABLE</h1>
 
