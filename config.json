@@ -1,7 +1,5 @@
 {
-  "email": "<Email Account of MC Account>",
-  "apikey": "<Type /api in Hypixel chat and copy and paste the result here!>",
-  "port": 25565,
-  "mcversion": "1.8.9",
-  "debug": false
+    "microsoftEMAIL": "<Enter your Minecraft/Microsoft Email Address>",
+    "port": 25565,
+    "version": "1.8.9"
 }
