@@ -236,6 +236,8 @@ if (!fs.existsSync("config.json")) {
                   };
                   client.write("chat", { message: JSON.stringify(nog), position: 0, sender: '0' })
                 }
+              } if (data.message.substring(0, 8) === "/lreload") {
+                readJsonFile()
               } else {
                 targetClient.write(meta.name, data)
               }
