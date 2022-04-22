@@ -55,14 +55,14 @@ if (!fs.existsSync("config.json")) {
   readJsonFile()
 
   function sbdDataCanPass(data, client) {
-      if (gameinfo.lobbyname == undefined && !gameinfo.server.includes("lobby") && data.players != undefined && gameinfo.gametype === "DUELS") {
-          if (data.players[0] != undefined) {
-              if (data.players[0].length > 2 && data.players[0] != client.username && !players.includes(data.players[0]) && !whitelist.includes(data.players[0])) {
-                  players.push(data.players[0])
-                  return true
-              }
-          }
+    if (gameinfo.lobbyname == undefined && !gameinfo.server.includes("lobby") && data.players != undefined && gameinfo.gametype === "DUELS") {
+      if (data.players[0] != undefined) {
+        if (data.players[0].length > 2 && data.players[0] != client.username && !players.includes(data.players[0]) && !whitelist.includes(data.players[0])) {
+          players.push(data.players[0])
+          return true
+        }
       }
+    }
       return false
   }
 
@@ -105,7 +105,7 @@ if (!fs.existsSync("config.json")) {
         translate: 'chat.type.announcement',
         "with": [
             "",
-            ptag+"§r Lvl: §6"+plvl
+            "§7"+ptag+"§r Lvl: §6"+plvl
         ]
       };
       var pdatamsg2 = {
@@ -140,18 +140,15 @@ if (!fs.existsSync("config.json")) {
   })
   srv.on('login', function (client) {
     const addr = client.socket.remoteAddress
-    console.log('Incoming connection', '(' + addr + ')')
+    console.log(client.username+" has connected.")
     let endedClient = false
     let endedTargetClient = false
     client.on('end', function () {
       endedClient = true
-      console.log('Connection closed by client', '(' + addr + ')')
       if (!endedTargetClient) { targetClient.end('End') }
     })
     client.on('error', function (err) {
       endedClient = true
-      console.log('Connection error by client', '(' + addr + ')')
-      console.log(err.stack)
       if (!endedTargetClient) { targetClient.end('Error') }
     })
     const targetClient = mc.createClient({
@@ -257,6 +254,15 @@ if (!fs.existsSync("config.json")) {
             client.compressionThreshold = data.threshold
           } if (meta.name === "scoreboard_team" && sbdDataCanPass(data, client)) {
             writeStats(data.players[0], client, false)
+          } if (meta.name === "player_info") {
+            if (data.data[0].name != undefined && data.data[0].properties != undefined) {
+              if (players.includes(data.data[0].name)) {
+                if (JSON.parse(Buffer.from(data.data[0].properties[0].value, 'base64')).profileName !== data.data[0].name) {
+                  players.push(data.data[0].name)
+                  writeStats(data.data[0].name, client, false)
+                }
+              }
+            }
           } if (meta.name === "chat") {
               let message = data.message
               if (message.includes("server") && message.includes("gametype")) {
@@ -276,34 +282,20 @@ if (!fs.existsSync("config.json")) {
       if (client.state !== states.PLAY || meta.state !== states.PLAY) { return }
       const packetData = targetClient.deserializer.parsePacketBuffer(buffer).data.params
       const packetBuff = client.serializer.createPacketBuffer({ name: meta.name, params: packetData })
-      if (!bufferEqual(buffer, packetBuff)) {
-        console.log('client<-server: Error in packet ' + meta.state + '.' + meta.name)
-        console.log('received buffer', buffer.toString('hex'))
-        console.log('produced buffer', packetBuff.toString('hex'))
-        console.log('received length', buffer.length)
-        console.log('produced length', packetBuff.length)
-      }
     })
     client.on('raw', function (buffer, meta) {
       if (meta.state !== states.PLAY || targetClient.state !== states.PLAY) { return }
       const packetData = client.deserializer.parsePacketBuffer(buffer).data.params
       const packetBuff = targetClient.serializer.createPacketBuffer({ name: meta.name, params: packetData })
-      if (!bufferEqual(buffer, packetBuff)) {
-        console.log('client->server: Error in packet ' + meta.state + '.' + meta.name)
-        console.log('received buffer', buffer.toString('hex'))
-        console.log('produced buffer', packetBuff.toString('hex'))
-        console.log('received length', buffer.length)
-        console.log('produced length', packetBuff.length)
-      }
     })
     targetClient.on('end', function () {
       endedTargetClient = true
-      console.log('Connection closed by server', '(' + addr + ')')
+      console.log(client.username+" has disconnected.")
       if (!endedClient) { client.end('End') }
     })
     targetClient.on('error', function (err) {
       endedTargetClient = true
-      console.log('Connection error by server', '(' + addr + ') ', err)
+      console.log(client.username+" has disconnected.")
       console.log(err.stack)
       if (!endedClient) { client.end('Error') }
     })
